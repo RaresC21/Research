@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+from Polytope import Polytope
+from symmetric import *
+from far_point import *
+
+def separation(polytope, iters): 
+    lines = polytope.reflection_lines(iters)
+
+    vec = np.random.random(polytope.dimension)
+    
+    total = np.zeros(polytope.dimension)
+    f = []
+    for line in lines:
+        pt = line[0]
+        total += pt
+        f.append(np.dot(vec, total))
+
+    plt.plot(range(len(f)), f)
+    plt.show()
+
+
+    
+dim = 10
+poly = symmetric(dim)
+zero = get_far_point(poly)
+poly.point = zero
+
+separation(poly, 100)
