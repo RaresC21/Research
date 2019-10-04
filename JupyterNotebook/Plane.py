@@ -266,6 +266,7 @@ class Plane:
         d_ /= np.linalg.norm(d_)
 
         ball = self.Ball(ball_plane.nearest_gridpoint(q_), self.options.radius)
+        
         counter = 0
         dist = []
         while True:
@@ -277,7 +278,7 @@ class Plane:
             if onBall:
                 ball, q_ = ball_plane.next_nearest_ball(ball_plane, q_, d_)
                 onBall = False
-
+            
             if ball.does_intersect(point_, direction_):
                 intersection, new_direction = ball.reflection(point_ - direction_, direction_)
                 cur_intersection = intersection.copy()
@@ -290,5 +291,7 @@ class Plane:
                         # this checked if the point we found is not inside of any other circle.
                         return self.standard_coords(cur_intersection), np.matmul(self.Q, new_direction)
 #                 else: break  
+
             ball, q_ = self.next_nearest_ball(ball_plane, q_, d_)
+            
         return (np.array([1e8] * self.dimension), 1e8)

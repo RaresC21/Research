@@ -3,12 +3,13 @@ from Polytope import Polytope
 import numpy as np
 from scipy.stats import ortho_group
 
-def make_cube(dim, options, long = False):
+def make_cube(dim, options, zero = None, long = False):
+    if zero is None: 
+        zero = np.zeros(dim)
     side = 2
 
     A = []
     b = []
-    zero = [0] * dim
 
     for i in range(dim):
       vec = [0] * dim
@@ -28,10 +29,11 @@ def make_cube(dim, options, long = False):
         
     A = np.array(A)
     b = np.array(b)
-    zero = np.array(zero)
+    
     b = b * side / 2
 
-    return Polytope(A, b, np.zeros(dim), options = options)    
+    
+    return Polytope(A, b, zero, options = options)    
 
 def make_hyperplanes(dim, options) : 
     v1 = np.zeros(dim) 

@@ -120,14 +120,15 @@ class Polytope:
 
     def reflection_lines(self, iterations, convergence_eps = 0.01, continue_ = False):
         if not continue_:
-            direction = np.random.random(self.dimension)
+            direction = np.array([1, 0.01])
+#             direction = np.random.random(self.dimension)
 #             direction = np.ones(self.dimension)
 #             direction = np.array([5,17])
 #             print(direction / np.linalg.norm(direction))
-            direction = np.zeros(self.dimension)
-            direction[0] = 1
-            direction += np.random.random(self.dimension) / 10
-            direction = direction / np.linalg.norm(direction)
+#             direction = np.zeros(self.dimension)
+#             direction[0] = 1
+#             direction += np.random.random(self.dimension) / 10
+#             direction = direction / np.linalg.norm(direction)
             pt = self.point
             average = np.zeros(self.dimension)
             length = 0
@@ -136,7 +137,8 @@ class Polytope:
             pt = self.reflection_point
             average = self.current_average
             length = self.current_length
-            
+
+        print("direction:", direction, self.point)
         hit_average = np.zeros(self.dimension)
 
         indx = -1
