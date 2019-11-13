@@ -1,0 +1,20 @@
+Introduction to Chaos and Ergodicity
+
+1. Dynamical Systems
+- Definition
+- Examples of different behavior, logistic family of maps
+
+2. Chaos
+- Hyperbolicity
+- Shadowing. Proof for contractions
+
+3. Ergodic Theory
+- Invariant Measures
+- Perron-Frobenius Operator
+- Birkhoff Ergodic Thm
+- Mixing. Proof Mixing Implies Ergodicity (Easy)
+
+Time permitting
+- Decay of Correlations
+- Mixing = Exponential Decay of Correlations
+- Proof of Exponential Decay for some simple map using PF Operator
