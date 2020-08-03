@@ -256,7 +256,7 @@ def singularities(boundary, balls, N, i):
             continue
 
 N = 2
-for n in range(1,N+1):
+for n in range(N,N+1):
     singularities(circ(balls[0].center[0], balls[0].center[1], balls[0].radius, np.arange(-0.4, 0.3, 1e-3)), balls, n, 0)
     singularities(circ(balls[1].center[0], balls[1].center[1], balls[1].radius, np.arange(1.2, 2.0, 1e-3)), balls, n, 1)
     singularities(circ(balls[2].center[0], balls[2].center[1], balls[2].radius, np.arange(3.88, 3.98, 1e-3)), balls, n, 2)

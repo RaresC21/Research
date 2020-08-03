@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import polytope as pc
+# import polytope as pc
 
 from Polytope import Polytope
 from Plane import Plane
@@ -58,12 +58,12 @@ class Volume:
         bprime = np.append(polytope.b, -1 * sgn * centroid[axis])
         other_half = Polytope(Aprime, bprime, centroid)
 
-        exact = 0
-        for i in range(10):
-            exact += pc.volume(pc.Polytope(new_polytope.A, new_polytope.b)) / \
-                     pc.volume(pc.Polytope(other_half.A, other_half.b))
-        exact /= 10
-        print("(real_ratio - approx_ratio)/ exact_ratio", (exact - vol_ratio) / exact)
+#         exact = 0
+#         for i in range(10):
+#             exact += pc.volume(pc.Polytope(new_polytope.A, new_polytope.b)) / \
+#                      pc.volume(pc.Polytope(other_half.A, other_half.b))
+#         exact /= 10
+#         print("(real_ratio - approx_ratio)/ exact_ratio", (exact - vol_ratio) / exact)
 
         vol = self.approximate_volume(new_polytope,
                                           (axis + 1) % polytope.dimension,
